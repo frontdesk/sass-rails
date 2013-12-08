@@ -51,7 +51,7 @@ module Sass::Rails
     end
 
     initializer :setup_compression, group: :all do |app|
-      unless Rails.env.development?
+      unless Rails.env.development? || Rails.env.test?
         app.config.assets.css_compressor ||= :sass
       else
         # Use expanded output instead of the sass default of :nested unless specified
